@@ -1,0 +1,39 @@
+﻿@model Shopping.Models.ViewModelCategory
+@{
+    ViewBag.Title = "New";
+}
+<section class="add">
+    <h2 class="margin btnstyle formAdd">New Shorts</h2>
+    @using (Html.BeginForm("Save", "Shorts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        @Html.ValidationSummary(true, "Please Fix The Following Erorrs.", new { @class = "center" })
+        <label for="photo">Photo</label>
+        <input type="file" class="form-control" name="file" />
+        @Html.ValidationMessageFor(m => m.shorts.photo)
+
+        <div class="form-group">
+            <label for="Email">Old Price</label> $
+            @Html.TextBoxFor(c => c.shorts.oldPrice, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.shorts.oldPrice)
+        </div>
+
+        <div class="form-group">
+            <label for="phone">New Price</label> $
+            @Html.TextBoxFor(c => c.shorts.newPrice, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.shorts.newPrice)
+        </div>
+
+        <div class="form-group">
+            <label for="Location">Description</label>
+            @Html.TextBoxFor(c => c.shorts.description, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.shorts.description, "Description field is required, It Should Contain The Color Of Category")
+        </div>
+
+        @Html.HiddenFor(m => m.shorts.id);
+        <div>
+            <button type="submit" class="btn">Add</button>
+            | @Html.ActionLink("Back", "shorts", "Shorts", new { @class = "btn" })
+        </div>
+    }
+</section>

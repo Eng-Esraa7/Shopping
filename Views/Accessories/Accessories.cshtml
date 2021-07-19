@@ -1,0 +1,79 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Shopping.Models.accessories>
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Accessories";
+}
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Sriracha&display=swap" rel="stylesheet">
+
+<!--start BreadCrumb-->
+<div class="holder">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/home/index">Home</a></li>
+            <li class="breadcrumb-item active">accessories</li>
+            <li class="breadcrumb-item"><a href="/Accessories/Accessories">Accessories</a></li>
+            <li class="breadcrumb-item"><a href="/Accessories/bags">Bags</a></li>
+            <li class="breadcrumb-item"><a href="/Accessories/watches">Watches</a></li>
+        </ol>
+        <!--start search-->
+        <div class="search ch left">
+            @using (Html.BeginForm("Accessories", "Accessories", FormMethod.Get))
+            {
+                <b>Search By:</b>
+                @Html.RadioButton("searchBy", "color", true) <b>Color</b>
+                @Html.RadioButton("searchBy", "price") <b>Price</b>
+                @Html.TextBox("searching")<input type="submit" value="Search" class="btn" />
+            }
+        </div>
+        <!--End search-->
+    </div>
+</div>
+<!--End BreadCrumb-->
+<!--start Bags-->
+<section class="girls text-center bag" id="bags">
+    <div class="container">
+        <h2 class="g m">Accessories</h2>
+        @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+        {
+    <a href="/Accessories/New" class="btn btn-primary" style="width:200px;color:#ffffff;margin:40px 75px">Add Accessories</a>
+        }
+        <div class="row">
+            @foreach (var access in Model)
+            {
+            <div class="col-md-4 col-sm-6  hvr-bounce-in">
+                <img src="~/uploadFiles/@access.photo" alt="pic1" class="img-responsive img-thumbnail"  style="width:200px;height:200px">
+                <span>@access.newPrice$</span>
+                <del>@access.oldPrice$</del>
+                @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+                {
+                    <div class="editIcon">
+                        @Html.ActionLink(" ", "Edit", "Accessories", new { id = access.id }, new { @class = "fas fa-edit hvr-bounce-in", style = "color: #fff; margin-left: -300px; font-size: 25px;" })
+                        @Html.ActionLink(" ", "Delete", "Accessories", new { id = access.id }, new { @class = "fas fa-trash hvr-bounce-in", style = "color: #fff;font-size: 25px;" })
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-xs-6">
+                        @if (User.Identity.GetUserName().Length > 0)
+                        {
+                            @Html.ActionLink("Add To Cart", "addToCart", "AddToCart", new { id = access.id, name = "access" }, new { @class = "btn btn-primary" })
+
+                        }
+                        else
+                        {
+                            <a href="/Account/Login" class="btn btn-primary">Add To Cart</a>
+                        }
+                    </div>
+                    <div class="col-xs-6">
+                        @Html.ActionLink("Details", "Details", "Accessories", new { id = access.id }, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+@Html.PagedListPager(Model, page => Url.Action("Accessories", new { page }))

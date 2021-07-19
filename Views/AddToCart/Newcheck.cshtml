@@ -1,0 +1,37 @@
+﻿@model Shopping.Models.viewModel
+@{
+    ViewBag.Title = "checkOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="add">
+    <h2 class="margin btnstyle formAdd">Check Out</h2>
+    @Html.ValidationSummary(true, "Please Fix The Following Erorrs.", new { @class = "center" })
+    @using (Html.BeginForm("SavecheckOut", "AddToCart"))
+    {
+        <div class="form-group">
+            <label for="FullName">Full Name</label>
+            @Html.TextBoxFor(c => c.CheckOut.FullName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CheckOut.FullName)
+        </div>
+        <div class="form-group">
+            <label for="Address">Address</label>
+            @Html.TextBoxFor(c => c.CheckOut.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CheckOut.Address)
+        </div>
+
+        <div class="form-group">
+            <label for="Phone">Phone Number</label>
+            @Html.TextBoxFor(c => c.CheckOut.Phone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CheckOut.Phone)
+        </div>
+
+        <h2>We Will Contact You Soon</h2>
+
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.CheckOut.id)
+        @Html.HiddenFor(m => m.CheckOut.Total)
+        @Html.HiddenFor(m => m.CheckOut.UserId)
+        <button type="submit" class="btn">Submit</button>
+        @Html.ActionLink("Back", "addToCart", "AddToCart", new { @class = "btn" })
+    }
+</section>

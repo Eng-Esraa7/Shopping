@@ -1,0 +1,103 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Shopping.Models.shoes>
+
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Shoes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .layout {
+        padding-bottom: 0;
+    }
+    .breadcrumb > li {
+        margin-top: 5px;
+        margin-bottom: 4px
+    }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Sriracha&display=swap" rel="stylesheet">
+
+<!--start BreadCrumb-->
+<div class="holder">
+    <div class="container">
+        <ol class="breadcrumb" style="margin-bottom:0; padding:4px">
+            <li class="breadcrumb-item"><a href="/home/index">Home</a></li>
+            <li class="breadcrumb-item active">Shoes</li>
+            <li class="breadcrumb-item"><a href="/Shoes/shoes">Girls Shoes</a></li>
+            <li class="breadcrumb-item"><a href="/Shoes/shoesmale">Men Shoes</a></li>
+        </ol>
+        <!--start search-->
+        <div class="search ch left">
+            @using (Html.BeginForm("Shoes", "Shoes", FormMethod.Get))
+            {
+                <b>Search By:</b>
+                @Html.RadioButton("searchBy", "color", true) <b>Color</b>
+                @Html.RadioButton("searchBy", "size") <b>Size</b>
+                @Html.RadioButton("searchBy", "price") <b>Price</b>
+                @Html.TextBox("searching")<input type="submit" value="Search" class="btn" />
+            }
+        </div>
+        <!--End search-->
+    </div>
+</div>
+<!--End BreadCrumb-->
+<!--start girls-->
+<section class="girls text-center" id="girl">
+    <div class="container">
+        <h2 class="g m">Girls Shoes</h2>
+        @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+        {
+            <a href="/Shoes/New" class="btn btn-danger" style="width:200px;color:#ffffff;margin:40px 75px">Add New Shoes</a>
+        }
+        <div class="row">
+            @foreach (var sh in Model)
+            {
+            <div class="col-md-4 col-sm-6  hvr-bounce-in">
+                <img src="~/uploadFiles/@sh.photo" alt="pic1" class="img-responsive img-thumbnail" style="width:200px;height:200px">
+                <span>@sh.newPrice$</span>
+                <del>@sh.oldPrice$</del>
+                @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+                {
+                    <div class="editIcon">
+                        @Html.ActionLink(" ", "Edit", "Shoes", new { id = sh.id }, new { @class = "fas fa-edit hvr-bounce-in", style = "color: #fff; margin-left: -300px; font-size: 25px;" })
+                        @Html.ActionLink(" ", "Delete", "Shoes", new { id = sh.id }, new { @class = "fas fa-trash hvr-bounce-in", style = "color: #fff;font-size: 25px;" })
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-xs-6">
+                        @if (User.Identity.GetUserName().Length > 0)
+                        {
+                            if (sh.AddToCart == true)
+                            {
+                                <button class="btn btn-danger hasAdded">Add To Cart</button>
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Add To Cart", "addToCart", "AddToCart", new { id = sh.id, name = "shoes" }, new { @class = "btn btn-danger" })
+                            }
+                        }
+                        else
+                        {
+                            <a href="/Account/Login" class="btn btn-danger">Add To Cart</a>
+                        }
+                    </div>
+                    <div class="col-xs-6">
+                        @Html.ActionLink("Details", "Details", "Shoes", new { id = sh.id }, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    </section>
+
+        <!--End girls-->
+        @Html.PagedListPager(Model, page => Url.Action("Shoes", new { page }))
+
+        <script src="~/js/bootstrap.js"></script>
+
+

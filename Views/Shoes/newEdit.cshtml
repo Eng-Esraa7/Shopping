@@ -1,0 +1,60 @@
+﻿@model Shopping.Models.ViewModelCategory
+@{
+    ViewBag.Title = "New";
+}
+<style>
+    .radion {
+        font-size: 30px !important;
+        margin-right: 20px
+    }
+</style>
+
+    <section class="add">
+        <h2 class="margin btnstyle formAdd">Edit Shoes</h2>
+        @Html.ValidationSummary(true, "Please Fix The Following Erorrs.", new { @class = "center" })
+        @using (Html.BeginForm("SaveEdit", "Shoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label for="Name">Photo</label>
+                <input type="file" class="form-control" name="file" />
+                @Html.ValidationMessageFor(m => m.shoes.photo)
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Old Price</label> $
+                @Html.TextBoxFor(c => c.shoes.oldPrice, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.shoes.oldPrice)
+            </div>
+
+            <div class="form-group">
+                <label for="phone">New Price $</label>
+                @Html.TextBoxFor(c => c.shoes.newPrice, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.shoes.newPrice)
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Size</label>
+                @Html.TextBoxFor(c => c.shoes.Size, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.shoes.Size)
+            </div>
+
+            <div class="form-group">
+                <label for="Location">Description</label>
+                @Html.TextBoxFor(c => c.shoes.description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.shoes.description, "Description field is required, It Should Contain The Color Of Category")
+            </div>
+
+            <div class="form-group">
+                @Html.RadioButton("ch", "Girls", Model.shoes.Girls, new { @class = "radion" })
+                <label for="Girls" class="radion">Girls</label>
+                @Html.RadioButton("ch", "Man", Model.shoes.Man, new { @class = "radion" })
+                <label for="Man" class="radion">Man</label>
+                </div>
+
+                @Html.HiddenFor(m => m.shoes.id);
+                <div>
+                    <button type="submit" class="btn">Edit</button>
+                    | @Html.ActionLink("Back", "Shoes", "Shoes", new { @class = "btn" })
+                </div>
+                }
+        </section>

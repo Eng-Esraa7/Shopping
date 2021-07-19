@@ -1,0 +1,344 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-family: 'Sriracha', cursive;
+}
+tbody tr:hover
+{
+	background-color: #651f69
+}
+/*.row a{
+	color:#ffffff!important;
+}*/
+
+.holder{background:#f5f5f5;position:fixed;z-index: 100;width: 100%;margin-top:60px; margin-bottom:0; padding:7px;}
+.breadcrumb {
+	margin-bottom: 0;
+	padding: 8px
+}
+.breadcrumb {
+	color: rgb(51, 122, 183)!important;
+}
+	/*start shoes*/
+.showMore, .showLess {
+	background-color: #651f699e !important
+}
+.showMore:hover, .showLess:hover {
+	background-color: #651f69 !important
+}
+	.girls span, .girls .btn {
+		display: block
+	}
+	.girls span,.girls del{font-size: 50px}
+	.girls .btn{margin-bottom: 50px;}
+	.girls .g{color:#cc1515;margin-top: 10px;margin-bottom: 50px;font-weight: bold;}
+	.girls .m{margin-top: 150px;}
+	.girls h2{color:#cc1515;margin-top: 50px;margin-bottom: 50px;font-weight: bold}
+		                                                    /*End Shoes*/
+.bag h2{
+	color: #337ab7!important
+}														/*start access*/
+	.bags span,.bags .btn{display: block}
+	.bags span,.bags del{font-size: 50px}
+	.bags .btn{margin-bottom: 50px;background: #651f69;border:#651f69}
+	.bags .g{color:#651f69;margin-top: 150px;margin-bottom: 50px;font-weight: bold;}
+	.bags h2{color:#651f69;margin-top: 50px;margin-bottom: 50px;font-weight: bold}														
+															/*End access*/
+															/*start faq*/
+		.faq h1{margin-top: 150px;font-family: 'Anton', sans-serif;font-size:50px}
+		.faq hr{width: 60%;margin-bottom: 50px}
+															/*End faq*/
+															/*start collapse*/
+	.coll .content
+	{border: 2px solid #000;
+	font-size: 25px;
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-top: -1px
+	}
+	.coll summary
+	{
+		font-size: 25px;
+		padding: 10px;
+		cursor: pointer;
+	}
+															/*End collapse*/
+															/*start dress*/
+.dress .d {
+	color: #ec39ad;
+	margin-top: 150px;
+	margin-bottom: 50px;
+	font-weight: bold;
+	font-size: 55px;
+	text-shadow: 3px 3px 3px #564848;
+}
+	.dress span,.dress .btn{display: block}
+	.dress span,.dress del{font-size: 50px}
+	.dress .btn{margin-bottom: 50px;background: #ec39ad;border:#ec39ad}
+.dress .btn:hover{
+	margin-bottom: 50px;
+	background: #ec39ad;
+	border: #ec39ad
+}
+	.dress h2{color:#ec39ad;margin-top: 50px;margin-bottom: 50px;font-weight: bold}				
+															/*End dress*/
+															/*start shorts*/
+															
+	.shorts .sh {color:#F44336;margin-top: 150px;margin-bottom: 50px;font-weight: bold;}
+	.shorts span,.shorts .btn{display: block}
+	.shorts span,.shorts del{font-size: 50px}
+	.shorts .btn{margin-bottom: 50px;background:#F44336;border:#F44336}
+	.shorts .btn:hover{margin-bottom: 50px;background:#F44336;border:#F44336}
+	.shorts a{color:#fff!important}
+	.shorts h2{color:#F44336;margin-top: 50px;margin-bottom: 50px;font-weight: bold}															
+															/*End shorts*/
+															/*start shirts*/
+	.shirts .sh {color:#2a7f92;margin-top: 150px;margin-bottom: 50px;font-weight: bold;}
+	.shirts span,.shirts .btn{display: block}
+	.shirts span,.shirts del{font-size: 50px}
+	.shirts .btn{margin-bottom: 50px;background:#2a7f92;border:#2a7f92}
+	.shirts h2{color:#2a7f92;margin-top: 50px;margin-bottom: 50px;font-weight: bold}
+	.shirts a{color:#FFF!important}
+															/*End shirts*/
+															/*start child*/
+															
+	.child .ch {color:#e91e63;margin-top: 150px;margin-bottom: 50px;font-weight: bold;}
+	.child span,.child .btn{display: block}
+	.child a{color:#fff!important}
+	.child span,.child del{font-size: 50px}
+	.child .btn{margin-bottom: 50px;background:#e91e63;border:#e91e63}
+	.child h2{color:#e91e63;margin-top: 50px;margin-bottom: 50px;font-weight: bold}															
+															/*End child*/
+															/*start details*/
+.details{
+	text-align: center
+}
+
+.details h2 {
+	font-size: 60px;
+	margin-top: 100px;
+	margin-bottom: 30px;
+	color: #cc1515;
+	font-weight: bold;
+	text-shadow: 3px 3px 3px #8c5d5d8a;
+}
+
+.details p{
+	font-size:20px;
+	margin-top:30px
+}
+
+.details .desc {
+	color: #cc1515;
+	font-size:30px
+}
+
+.details .btn {
+	width: 150px;
+	margin-top: 20px;
+	background-color: #651f699e !important;
+	color: #fff !important;
+	font-size:30px;
+	border-radius:10%
+}
+
+.details .btn:hover{
+	width:130px;
+		background-color: #651f69 !important;
+}
+															/*end details*/
+.btn a{
+	color:#fff!important;
+}
+/*shorts*/
+.s .btn-primary {
+	background-color: #795548!important;
+	border: 1px solid #795548
+}
+
+/*pants*/
+.btnc {
+	background-color: #751854;
+}
+.btnc:hover {
+	background-color: #751854;
+}
+.girls a{
+	color:#fff!important
+}
+/*start search*/
+.search {
+	text-align: right;
+	color: #651f69;
+	margin-top: -29px
+}
+.search input[type="text"] {
+	border-radius: 5%;
+	border: 1px solid #651f69;
+	height:20px
+}
+.search .btn {
+	display: inline;
+	color: #fff;
+	margin-bottom: 0;
+	margin-top: -2px;
+	background: #651f69;
+	height: 20px;
+	font-size: 15px;
+	padding: 5px;
+	line-height: .4
+}
+.search label{
+	font-size:15px;
+	margin-right:20px
+}
+
+.sh .back .btn {
+	margin-top: 140px !important;
+	background-color: #651f699e;
+	display: inline;
+	padding: 10px 40px;
+}
+.sh p, .style{
+	font-size:30px;
+	font-weight:bold;
+	margin-bottom:30px;
+}
+
+.margin{
+	margin-top:100px;
+}
+/*End search*/
+
+/*add to cart*/
+.btnaddToCart {
+	background-color: #651f699e;
+	color: #fff
+}
+.btnaddToCart:hover {
+	background-color: #651f69;
+	color: #fff
+}
+.textaddToCart h1, .textaddToCart h2 {
+	color: #651f69;
+	font-weight:bold
+}
+.textaddToCart table{
+	font-size: 20px
+}
+
+
+.cartCircle::before {
+	content: attr(data-count);
+	position: absolute;
+	color: white;
+	right: 16px;
+	font-size: 15px;
+	text-align: center;
+	top: -12px;
+	width: 30px;
+	height: 30px;
+	background-color: red;
+	border-radius: 50%;
+	opacity: 1;
+}
+
+.cartCircle i{
+	color:#fff
+}
+
+/*add edit delete*/
+.add {
+    padding-top: 40px;
+    padding-bottom:40px;
+}
+
+.add h2{
+	text-shadow:3px 3px 3px #795548
+}
+
+.add hr{
+	width:50%
+}
+
+.add .btn{
+    background-color:#fff;
+    border:1px solid #fff; 
+    color:#cc1515;
+    font-size: 18px;
+    font-weight: bold;
+	margin-top:20px
+}
+.add .btn:hover{
+    background-color:#cc1515;
+    border:1px solid #cc1515; 
+    color:#fff;
+    font-size: 18px;
+    font-weight: bold
+}
+
+.add h2, .add h1 {
+    color: #cc1515;
+	margin-bottom:30px;
+	font-size:35px;
+	font-weight:bold
+}
+.add .formAdd, .add form, .add .form-control {
+    transform: translateX(-50%);
+    margin-left: 50%;
+    text-align: center;
+    border-radius: 8%;
+}
+.add label {
+    font-size: 20px;
+    font-weight: bold;
+	margin-bottom:20px
+}
+
+.add .btn {
+    font-size: 20px;
+    font-weight: bold;
+    color: #cc1515;
+}
+.add input {
+    font-size: 18px;
+    font-weight: bold;
+}
+.add .dl-horizontal {
+    font-size:18px;
+    margin-left:50%;
+    transform:translateX(-40%);
+    margin-top:30px
+}
+.add dd{
+    margin-left:200px;
+    font-size:20px;
+    margin-bottom:20px
+}
+
+.field-validation-valid{
+	font-size:16px;
+}
+
+.validation-summary-errors {
+	text-align:center
+}
+/*cart*/
+.cart .btncart {
+	background-color: #cc151582;
+	width: 120px;
+	padding: 10px;
+	color: #fff;
+}
+
+.cart .btncart:hover{
+	background-color:#cc1515;
+}
+
+.cart img{
+	width:100px;
+	height:80px
+}
+
+.btn-primary {
+	background-color: #153f63
+}

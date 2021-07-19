@@ -1,0 +1,67 @@
+@media(max-width:767px)
+{
+    .navbar-inverse .navbar-brand 
+ {
+    font-size: 30px;
+    color:#FFF;
+    padding-top:15px;
+    padding-bottom: 30px;
+ }
+ .navbar-inverse .navbar-nav > li > a
+ {
+    padding-top:15px;
+ }
+ .carousel-indicators
+   {
+     margin-top: 50px;
+     margin-bottom: 5px;
+   }
+  .dropdown-menu > li > a
+  {
+   padding: 10px;
+   padding-left: 30px;
+   color: #FFF;
+   -webkit-transition:all .5s ease-in-out;
+    -moz-transition:all .5s ease-in-out;
+    -o-transition:all .5s ease-in-out;
+		  transition:all .5s ease-in-out;
+    font-size: 15px
+  }
+  .dropdown-menu > li > a:hover,.dropdown-menu > li > a:active
+  {background: #cc1515;padding-left: 37px;font-size: 18px;color:#FFF}
+  .dropdown-menu .divider{background: #cc1515;}
+  .footer .sitemap li {width:35%;}
+     .footer .social li {width:50%}
+     .holder{background:#f5f5f5;margin-top: 50px;position:fixed;z-index: 100;width: 100%}		
+}
+
+@media(min-width:776) and (max-width:1125)
+{
+ .navbar-inverse{
+     font-size: 10px
+ }
+}	
+
+@media(min-width:992px) and (max-width:1199px) /*meduim*/		
+{
+ .footer .sitemap li
+    {
+     width:45%;
+     }
+     .footer .social li
+     {
+      width:30%;
+     }
+}
+
+@media(min-width:768px) and (max-width:991px) /*small*/		
+{
+ .footer .sitemap li
+    {
+     width:37%;
+     }
+     .footer .social li
+     {
+      width:30%;
+     }
+}	

@@ -1,0 +1,102 @@
+﻿body {
+    background-image: url('../images/1.jfif');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: repeat-x;
+    box-sizing: border-box;
+}
+
+.contact {
+    padding-bottom: 80px;
+    margin: 85px auto 0;
+}
+
+hr{
+    width:30%
+}
+
+.contact h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color:red
+}
+
+    .contact input, textarea, .btn {
+        display: block;
+        margin: 30px 0px;
+        padding: 5px;
+        outline: none;
+        border-radius: 20px;
+        border-color: #e6e6e6;
+        transform: translateX(-50%);
+        margin-left: 50%
+    }
+
+.contact input {
+    height: 50px;
+}
+
+.contact input, textarea {
+    width: 400px;
+}
+
+.contact .btn {
+    width: 150px;
+    margin: 10px auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    color: #999b84;
+    transform: translateX(-50%);
+    margin-left: 50%
+}
+
+
+.contact .btn:hover {
+    width: 150px;
+    margin: 10px auto;
+    text-align: center;
+    background-color: red;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff!important;
+    transform: translateX(-50%);
+    margin-left: 50%
+}
+
+.field-validation-error, .input-validation-error {
+    margin-left: 40%;
+    font-size:20px;
+    color:red
+}
+/*success message*/
+.first_message {
+    margin: 70px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    height: 50px;
+    width: 100px;
+    padding: 50px;
+    margin-top: 50px;
+    color:#FFF
+}
+
+.message {
+    background-color: #ccf6c8;
+    width: 700px;
+    height: 50px;
+    padding: 15px;
+    margin-left: 70px;
+    color: #295939;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 360px
+}
+
+.last_message {
+    margin: 20px 70px 331px;
+    font-weight: bold;
+}

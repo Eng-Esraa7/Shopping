@@ -1,0 +1,40 @@
+﻿@model Shopping.Controllers.ContactUs
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .contact input, textarea {
+        color: rgba(0, 0, 0, 0.84) !important;
+        font-size:20px;
+    }
+</style>
+<link href="~/css/contact.css" rel="stylesheet" />
+<div class="body">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="contact" style="padding-top:20px;margin-top:50px">
+            <h1>ContactUs</h1>
+            <hr />
+            @Html.ValidationSummary(true, "Please Fix The Following Erorrs.", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { placeholder = "Full Name" } })
+            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email" } })
+            @Html.ValidationMessageFor(model => model.Email, "")
+
+            @Html.EditorFor(model => model.Message, new { htmlAttributes = new { placeholder = "Message" } })
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { placeholder = "Phone" } })
+            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
+
+            <input type="submit" value="Submit" class="btn btn-default" />
+    </div>
+    }
+</div>

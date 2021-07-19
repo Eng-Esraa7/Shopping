@@ -1,0 +1,45 @@
+﻿
+@{
+ViewBag.Title = "Request";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Requests</h2>
+<section class="add cart">
+<div class="container">
+    <h2 class="margin btnstyle formAdd" style="margin-top:50px">Requests</h2>
+
+    @foreach (var check in ViewBag.checkout)
+    {
+        if (check.finish == false)
+        {
+        <h3>Total: @check.Total$</h3>
+        <h3>Name: @check.FullName</h3>
+        <h3>Address: @check.Address</h3>
+        <h3>Phone: @check.Phone</h3>
+        @Html.ActionLink("Finish Order", "finishOrder", "AddToCart", new { id = check.id }, new { @class = "btn margin-right" })
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <td>Category Photo</td>
+                    <td>Category Price</td>
+                </tr>
+            </thead>
+            @foreach (var cart in ViewBag.cart)
+            {
+                if (check.UserId == cart.UserId && cart.check == true && check.nameUser == cart.nameUser)
+                {
+                    <tbody>
+                        <tr>
+                            <td><img src="~/uploadFiles/@cart.photo" /></td>
+                            <td>@cart.price</td>
+                        </tr>
+
+                    </tbody>
+                }
+            }
+        </table>
+        }
+    }
+</div>
+</section>

@@ -1,0 +1,127 @@
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Shopping</title>
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <meta charset="UTF-8">
+    <!--internet explorer compatibility-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--first responsive to mobile-->
+    <meta name="viewport" content="width=device-width">
+    <meta name="Shopping" content="Shopping our we have Clothes and Accessories">
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/media.css">
+    <link rel="stylesheet" href="~/css/all.min.css">  <!--font awesome-->
+    <link rel="stylesheet" href="~/css/hover.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/css/pages.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/shopping.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+
+    <!--internet explorel can recognize header nav footer section article...-->
+    <!--[if lt IE 9]>
+                <script src="~/js/html5shiv.min.js"></script>
+                <script src="~/js/respond.min.js"></script>
+                <![endif]-->
+    <!--تعالج مشاكل media query-->
+</head>
+<body>
+    <section class="layout">
+        <!--start navbar-->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <!--button appear in phone-->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#opennavbar" aria-expanded="false">
+                        <!--target بيقول لما ادوس عليه يفتح اي-->
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand hvr-wobble-top" href="#">Shopping</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="opennavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        @Html.Partial("_LoginPartial")
+                        <li class="active hvr-skew-backward"><a href="/home/Index">Home <span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle hvr-skew-backward" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Dresses/Dresses">Dresses</a></li>
+                                <li><a href="/Suits/suits">Suits</a></li>
+                                <li><a href="/Shorts/shorts">Shorts</a></li>
+                                <li><a href="/Pants/pants">Pants</a></li>
+                                <li><a href="/Shirts/shirts">Shirts</a></li>
+                                <li><a href="/Children/children">children</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/Shoes/shoes">Shoes</a></li>
+                                <li><a href="/Accessories/Accessories">Accessories</a></li>
+                            </ul>
+                        </li>
+                        @if (User.Identity.GetUserName().Length > 0)
+                        {
+                            <li class="hvr-skew-backward"><a href="/ContactUs/Create">Contact Us</a></li>
+                        }
+                        else
+                        {
+                            <li class="hvr-skew-backward"><a href="/account/login">Contact Us</a></li>
+                        }
+                        <li class="hvr-skew-backward"><a href="/home/faq">FAQ</a></li>
+                        @if (User.Identity.GetUserName().Length > 0)
+                        {
+                            <li><h2 class="hvr-skew-backward cartCircle"><a href="/AddToCart/addToCart"><i class="fa fa-shopping-cart" style="text-shadow:3px 3px 3px #000"></i></a></h2></li>
+                        }
+                        else { 
+                            <li><h2 class="hvr-skew-backward cartCircle"><a href="/account/login"><i class="fa fa-shopping-cart" style="text-shadow:3px 3px 3px #000"></i></a></h2></li>
+                        }
+                        @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+                        {
+                            <li><h2 class="hvr-skew-backward"><a href="/ContactUs/Index"><i class="far fa-bell " style="margin-left:15px;color:#fff;text-shadow:3px 3px 3px #000"></i></a></h2></li>
+                            <li><h2 class="hvr-skew-backward"><a href="/AddToCart/Request"><i class="fa fa-mail-bulk" style="margin-left:15px;color:#fff;text-shadow:3px 3px 3px #000"></i></a></h2></li>
+                        }
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!--End of container-->
+
+        </nav>
+        <!--end navbar-->
+        @RenderBody()
+        </section>
+        <!--start copy right-->
+        <section class="copy text-center">
+            copyright &copy; 2021 <span>Shopping</span>
+        </section>
+        <!--End copy right-->
+        <!-- start scroll top -->
+        <div id="scroll-top">
+            <i class="fa fa-chevron-up fa-3x"></i>
+        </div>
+        <!-- End scroll top -->
+
+        <script src="~/js/jquery-1.11.1.min.js"></script>
+        <script src="~/js/bootstrap.js"></script>
+        <script src="~/js/plugins.js"></script>
+        <script src="~/js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+        <script src="~/js/jquery.nicescroll.min.js"></script>
+
+        @RenderSection("scripts", required: false)
+
+</body>
+</html>
+

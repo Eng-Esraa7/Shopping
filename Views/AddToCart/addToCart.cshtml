@@ -1,0 +1,262 @@
+﻿@model IEnumerable<Shopping.Models.infoOfCart>
+@using Microsoft.AspNet.Identity
+@{
+
+    ViewBag.Title = "addToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/contact.css" rel="stylesheet" />
+<section class="cart">
+    <div class="container">
+        <h2>In Your Cart</h2>
+        <h2 style="margin-top:50px">Total you Should Pay: @ViewBag.total$</h2>
+        @Html.ActionLink("Check Out", "Newcheck", "AddToCart", new { total = @ViewBag.total }, new { @class = "btn btncart", style = "margin-bottom:30px;margin-left:5%" })
+        <h2>Dresses</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "dresses")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "dresses" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <h2>Suits</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "suit")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "suit" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <h2>Shorts</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "shorts")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "shorts" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <h2>Pants</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "pants")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "pants" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <h2>Shirts</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "shirts")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "shirts" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <h2>Children</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "child")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "child" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <h2>Shoes</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "shoes")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "shoes" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+        <h2>Accessories</h2>
+        <table class="table tab-content table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>Photo Of Category</th>
+                    <th>Price</th>
+                    <th>No of Category</th>
+                    <th>Delete From cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    if (d.UserId == User.Identity.GetUserId() && d.check == false && d.nameCategory == "access")
+                    {
+                        <tr>
+                            <td><img src="~/uploadFiles/@d.photo" /></td>
+                            <td>@d.price</td>
+                            <td>@d.noCategory</td>
+                            <td>@Html.ActionLink("Delete", "DeleteFromCart", "AddToCart", new { id = d.id, name = "access" }, new { @class = "btn btncart", Style = "margin-left:18%;margin-top:1%" })</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        @*back dresses*@
+        @if (ViewBag.name == "dresses")
+        {
+            @Html.ActionLink("Back", "Dresses", "Dresses", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+        @*back suits*@
+        @if (ViewBag.name == "suit")
+        {
+            @Html.ActionLink("Back", "suits", "Suits", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+        @*back shorts*@
+        @if (ViewBag.name == "shorts")
+        {
+            @Html.ActionLink("Back", "shorts", "Shorts", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+        @*back pants*@
+        @if (ViewBag.name == "pants")
+        {
+            @Html.ActionLink("Back", "pants", "Pants", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+        @*back shirts*@
+        @if (ViewBag.name == "shirts")
+        {
+            @Html.ActionLink("Back", "shirts", "Shirts", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+        @*back children*@
+        @if (ViewBag.name == "child")
+        {
+            @Html.ActionLink("Back", "children", "Children", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+
+        @*back shoes*@
+        @if (ViewBag.name == "shoes")
+        {
+            @Html.ActionLink("Back", "Shoes", "Shoes", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+
+        @*back Accessories*@
+        @if (ViewBag.name == "access")
+        {
+            @Html.ActionLink("Back", "Accessories", "Accessories", new { id = ViewBag.Id }, new { @Class = "btn btncart" })
+        }
+
+    </div>
+</section>
+

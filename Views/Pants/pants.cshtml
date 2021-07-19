@@ -1,0 +1,75 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Shopping.Models.pants>
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "pants";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--start BreadCrumb-->
+<div class="holder">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+            <li class="breadcrumb-item active"><a href="/Pants/pants">Pants</a></li>
+        </ol>
+        <!--start search-->
+        <div class="search ch left">
+            @using (Html.BeginForm("pants", "Pants", FormMethod.Get))
+            {
+                <b>Search By:</b>
+                @Html.RadioButton("searchBy", "color", true) <b>Color</b>
+                @Html.RadioButton("searchBy", "price") <b>Price</b>
+                @Html.TextBox("searching")<input type="submit" value="Search" class="btn" />
+            }
+        </div>
+        <!--End search-->
+    </div>
+</div>
+<!--End BreadCrumb-->
+<!--start pants-->
+<section class="girls text-center" id="girl">
+    <div class="container">
+        <h2 class="g m">Pants</h2>
+        @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+        {
+            <a href="/Pants/New" class="btn" style="width:200px;color:#ffffff;margin:40px 75px;background-color:#751854">Add New Pant</a>
+        }
+        <div class="row">
+            @foreach (var p in Model)
+            {
+                <div class="col-md-4 col-sm-6  hvr-bounce-in">
+                    <img src="~/uploadFiles/@p.photo" alt="pic1" class="img-responsive img-thumbnail" style="width:200px;height:200px">
+                    <span>@p.newPrice$</span>
+                    <del>@p.oldPrice$</del>
+                    @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+                    {
+                        <div class="editIcon">
+                            @Html.ActionLink(" ", "Edit", "Pants", new { id = p.id }, new { @class = "fas fa-edit hvr-bounce-in", style = "color: #fff; margin-left: -300px; font-size: 25px;" })
+                            @Html.ActionLink(" ", "Delete", "Pants", new { id = p.id }, new { @class = "fas fa-trash hvr-bounce-in", style = "color: #fff;font-size: 25px;" })
+                        </div>
+                    }
+                    <div class="row">
+                        <div class="col-xs-6">
+                            @if (User.Identity.GetUserName().Length > 0)
+                            {
+                                @Html.ActionLink("Add To Cart", "addToCart", "AddToCart", new { id = p.id, name = "pants" }, new { @class = "btn btnc" })
+                            }
+                            else
+                            {
+                                <a href="/Account/Login" class="btn btnc">Add To Cart</a>
+                            }
+                        </div>
+                        <div class="col-xs-6">
+                            @Html.ActionLink("Details", "Details", "Pants", new { id = p.id }, new { @class = "btn btnc" })
+                        </div>
+                    </div>
+                </div>
+       
+            }
+
+        </div>
+</section>
+<!--End pants-->
+@Html.PagedListPager(Model, page => Url.Action("pants", new { page }))

@@ -1,0 +1,17 @@
+﻿@model Shopping.Models.shoes
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="row details">
+        <div class="col-xs-6 col-xs-offset-3">
+        <h2>Details</h2>
+        <img src="~/uploadFiles/@Model.photo" alt="pic1" class="img-responsive img-thumbnail" style="width:200px;height:200px">
+        <p> <span class="desc">Description: </span>@Model.description</p>
+        <p><span class="desc">Color Available: </span>@Model.color</p>
+        <p><span class="desc">Size Available: </span>@Model.Size</p>
+        <p><span class="desc"> Old Price: </span>@Model.oldPrice$</p>
+        <p><span class="desc">New Price: </span>@Model.newPrice$</p>
+        @Html.ActionLink("Back", "Shoes", "Shoes", new { @class = "btn" })
+    </div>
+        </div>

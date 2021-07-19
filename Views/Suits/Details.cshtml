@@ -1,0 +1,22 @@
+﻿@model Shopping.Models.suits
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row details">
+    <div class="col-xs-6 col-xs-offset-3">
+        <h2>Details</h2>
+        @if (Model.id <= 9)
+        {
+            <img src="../@Model.photo" alt="pic1" class="img-responsive img-thumbnail">
+        }
+        else
+        {
+            <img src="~/uploadFiles/@Model.photo" alt="pic1" class="img-responsive img-thumbnail" style="width:200px;height:200px">
+        }
+        <p> <span class="desc">Description: </span>@Model.description</p>
+        <p><span class="desc"> Old Price: </span>@Model.oldPrice$</p>
+        <p><span class="desc">New Price: </span>@Model.newPrice$</p>
+        @Html.ActionLink("Back", "suits", "Suits", new { @class = "btn" })
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "faq";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Sriracha&display=swap" rel="stylesheet">
+
+<!--start BreadCrumb-->
+<div class="holder" style="margin-top:70px; margin-bottom:0; padding:0">
+    <div class="container">
+        <ol class="breadcrumb" style="margin-bottom:0; padding:4px">
+            <li class="breadcrumb-item"><a href="/home/index">Home</a></li>
+            <li class="breadcrumb-item active">FAQ</li>
+        </ol>
+    </div>
+</div>
+<!--End BreadCrumb-->
+<!--start faq-->
+<section class="faq">
+    <div class="container">
+        <h1 class="text-center">Frequently Asked Question</h1>
+        <hr>
+    </div>
+</section>
+<!--End faq-->
+<!--start collapse-->
+<section class="coll text-center">
+    <div class="container">
+        <details>
+            <summary>Why isn't my card being accept??</summary>
+            <div class="content">
+                There are many reasons for a failed credit card transaction. Your card may have expired or reached its limit.
+                A credit card computer, either on our end or your bank's end,
+                may have encountered a machine error or your billing information may not have been accepted.
+                If you are experiencing issues with submitting an order, please contact our Customer Support Team.
+            </div>
+        </details>
+
+        <details>
+            <summary>Can i change my shipping adress?? </summary>
+            <div class="content">
+                Unfortunately, you cannot change your shipping address after your order has been submitted.
+                The order is immediately sent to the fulfillment agency and can no longer be changed by our system.
+                If your package is not successfully delivered,
+                it will be returned to the warehouse and a credit will be made to your account.
+            </div>
+        </details>
+
+        <details>
+            <summary>Can i change my shipping method??</summary>
+            <div class="content">
+                Unfortunately, you cannot change your shipment method after your order has been submitted.
+                The order is immediately sent to the fulfillment agency and can no longer be changed by our system.
+            </div>
+        </details>
+
+        <details>
+            <summary>What can i do if i have an issue about my order??</summary>
+            <div class="content">
+                If there is a problem with your order, please contact our Customer Support Team via this form here or through the phone
+                (+1 (878) 537-5655) and let us know your issue.
+                Keep your order confirmation email or order details page handy for reference as we help you with your concerns.
+            </div>
+        </details>
+    </div>
+</section>
+<!--End collapse-->
+<!-- start scroll top -->
+<div id="scroll-top">
+    <i class="fa fa-chevron-up fa-3x"></i>
+</div>
+<!-- End scroll top -->
+<script src="~/js/bootstrap.js"></script>

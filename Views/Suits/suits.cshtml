@@ -1,0 +1,76 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList< Shopping.Models.suits >
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "suits";
+}
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Sriracha&display=swap" rel="stylesheet">
+
+<!--start BreadCrumb-->
+<div class="holder">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+            <li class="breadcrumb-item active"><a href="/Suits/suits">Suits</a></li>
+        </ol>
+        <!--start search-->
+        <div class="search ch left">
+            @using (Html.BeginForm("suits", "Suits", FormMethod.Get))
+            {
+                <b>Search By:</b>
+                @Html.RadioButton("searchBy", "color", true) <b>Color</b>
+                @Html.RadioButton("searchBy", "price") <b>Price</b>
+                @Html.TextBox("searching")<input type="submit" value="Search" class="btn" />
+            }
+        </div>
+        <!--End search-->
+    </div>
+</div>
+<!--End BreadCrumb-->
+<!--start suits-->
+<section class="girls text-center" id="bags">
+    <div class="container">
+        <h2 class="s m" style="color:#0094ff">Suits</h2>
+        @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+        {
+            <a href="/Suits/New" class="btn btn-primary" style="width:200px;color:#ffffff;margin:40px 75px">Add New Suit</a>
+        }
+        <div class="row">
+            @foreach (var s in Model)
+            {
+                    <div class="col-md-4 col-sm-4  hvr-bounce-in">
+                        <img src="~/uploadFiles/@s.photo" alt="pic1" class="img-responsive img-thumbnail" style="width:200px;height:200px">
+                        <span>@s.newPrice$</span>
+                        <del>@s.oldPrice$</del>
+                        @if (User.Identity.GetUserName().Equals("Admin@gmail") && User.Identity.GetUserId().Equals("3f3604e4-04b4-4b40-9812-f6608299cd47"))
+                        {
+                            <div class="editIcon">
+                                @Html.ActionLink(" ", "Edit", "Suits", new { id = s.id }, new { @class = "fas fa-edit hvr-bounce-in", style = "color: #fff; margin-left: -300px; font-size: 25px;" })
+                                @Html.ActionLink(" ", "Delete", "Suits", new { id = s.id }, new { @class = "fas fa-trash hvr-bounce-in", style = "color: #fff;font-size: 25px;" })
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col-xs-6">
+                                @if (User.Identity.GetUserName().Length > 0)
+                                {
+                                    @Html.ActionLink("Add To Cart", "addToCart", "AddToCart", new { id = s.id, name = "suit" }, new { @class = "btn btn-primary" })
+                                }
+                                else
+                                {
+                                    <a href="/Account/Login" class="btn btn-primary">Add To Cart</a>
+                                }
+                            </div>
+                            <div class="col-xs-6">
+                                @Html.ActionLink("Details", "Details", "Suits", new { id = s.id }, new { @class = "btn btn-primary" })
+                            </div>
+                        </div>
+                    </div>
+            }
+        </div>
+    </div>
+</section>
+@Html.PagedListPager(Model, page => Url.Action("suits", new { page }))
+
+<!--End suits-->
